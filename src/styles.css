@@ -1,0 +1,399 @@
+:root {
+  color: #f6f3ea;
+  background: #0d1512;
+  font-family: Inter, "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(235, 70, 55, 0.16), transparent 28rem),
+    linear-gradient(135deg, #10231d 0%, #141717 42%, #281814 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff7e8;
+  border-radius: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.primary {
+  background: #e9b44c;
+  color: #21170a;
+  border-color: #ffe1a0;
+  font-weight: 800;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-rows: auto 1fr auto;
+  gap: 16px;
+}
+
+.topbar {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 32px;
+  letter-spacing: 0;
+}
+
+.topbar p,
+.player-flags,
+.round-info,
+.side-log p {
+  color: rgba(246, 243, 234, 0.72);
+}
+
+.join-panel {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.join-panel input {
+  width: 128px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.22);
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.icon-button {
+  width: 42px;
+  padding: 0;
+}
+
+.table {
+  min-height: 640px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 45%, rgba(255, 255, 255, 0.04)),
+    #174434;
+  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.32);
+  padding: 18px;
+  display: grid;
+  grid-template-rows: auto 160px 1fr auto;
+  gap: 16px;
+}
+
+.score-strip,
+.round-info,
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.score-item,
+.round-info span,
+.pattern-pill,
+.player-flags span {
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 10px;
+}
+
+.score-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.opponents {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.player-panel,
+.self-panel,
+.last-play,
+.side-log {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(6, 13, 12, 0.38);
+}
+
+.player-panel {
+  min-height: 148px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.active {
+  outline: 2px solid #e9b44c;
+  box-shadow: 0 0 0 4px rgba(233, 180, 76, 0.13);
+}
+
+.player-title,
+.self-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.player-title strong {
+  margin-right: auto;
+}
+
+.card-back-stack {
+  width: 82px;
+  height: 72px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  background: repeating-linear-gradient(135deg, #d24737 0 8px, #f2c66a 8px 12px);
+  box-shadow: calc(min(var(--count), 18) * 1px) 0 0 rgba(0, 0, 0, 0.22);
+}
+
+.player-flags {
+  display: flex;
+  gap: 8px;
+}
+
+.center-play {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  place-items: center;
+  gap: 14px;
+}
+
+.landlord-cards,
+.played-cards {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mini-back {
+  width: 42px;
+  height: 58px;
+  border-radius: 6px;
+  background: repeating-linear-gradient(135deg, #d24737 0 7px, #f2c66a 7px 10px);
+}
+
+.last-play {
+  min-height: 126px;
+  width: min(620px, 100%);
+  padding: 14px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+}
+
+.self-panel {
+  padding: 14px;
+}
+
+.self-meta {
+  margin-bottom: 12px;
+}
+
+.self-meta > div:first-child {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.hand {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  padding: 16px 4px 6px;
+}
+
+.card-button {
+  flex: 0 0 54px;
+  width: 72px;
+  min-height: 104px;
+  padding: 0;
+  margin-right: -18px;
+  background: transparent;
+  border: 0;
+  transition: transform 160ms ease;
+}
+
+.card-button.selected {
+  transform: translateY(-18px);
+}
+
+.card-face {
+  width: 72px;
+  height: 104px;
+  border-radius: 8px;
+  background: #fffaf0;
+  color: #171717;
+  border: 1px solid #e8dcc7;
+  box-shadow: 0 7px 16px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.card-face.compact {
+  width: 42px;
+  height: 58px;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.card-face.red {
+  color: #c9322c;
+}
+
+.card-face.black {
+  color: #1c1d1d;
+}
+
+.card-face b {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.card-face i {
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.compact b {
+  font-size: 12px;
+}
+
+.compact i {
+  font-size: 15px;
+}
+
+.actions {
+  grid-column: 1 / 2;
+  justify-content: center;
+  padding-bottom: 4px;
+}
+
+.side-log {
+  grid-column: 2;
+  grid-row: 2 / 4;
+  padding: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.side-log > div:last-child {
+  overflow-y: auto;
+  display: grid;
+  gap: 10px;
+}
+
+.toast {
+  background: #c9322c;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .join-panel {
+    flex-wrap: wrap;
+  }
+
+  .table {
+    min-height: 620px;
+  }
+
+  .side-log,
+  .actions {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  .opponents {
+    grid-template-columns: 1fr;
+  }
+
+  .table {
+    grid-template-rows: auto auto 1fr auto;
+    padding: 12px;
+  }
+
+  .card-button {
+    flex-basis: 45px;
+  }
+}
